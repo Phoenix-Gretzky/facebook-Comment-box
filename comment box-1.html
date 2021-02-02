@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COMMENT BOX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+
+      $('.rep').on('click', '.reply', function(){
+      $('.replyForm',$(this).parent()).slideToggle();
+    });
+
+    $('.rep').on('click', '.like', function(){
+      $(this).children('span').text(+$(this).children('span').text()+1);
+    });
+
+    $('.rep').on('click', '.commentPost', function(){
+      $(this).parent().parent().parent().append('<div class="media p-3"><img src="https://images-na.ssl-images-amazon.com/images/I/51Slh1U%2Bu4L.png" alt="Karan Husssain" class="mr-3 mt-3 rounded-circle" style="width:75px;"><div class="media-body"><h4>' + $('.replyName',$(this).parent()).val() + '</h4><p>' + $('.replyComment',$(this).parent()).val() + '</p><button class="btn btn-default like">Like : <span class="likeCount">0</span></button><button class="btn btn-link btn-warning reply">Comment : <span class="commentCount">0</span></button><div class="media p-3 replyForm" style="display:none"><img src="https://images-na.ssl-images-amazon.com/images/I/51Slh1U%2Bu4L.png" alt="Karan Husasain" class="mr-3 mt-3 rounded-circle" style="width:75px; height:75px;"><div class="media-body rep"><input type="text" class="form-control replyName" placeholder="Name"><br><textarea class="form-control replyComment" rows="3" placeholder="Write comment here..."></textarea><br><button class="btn btn-primary commentPost">Reply</button></div></div></div></div>');
+      $(this).parent().parent().hide();
+      $(this).parent().parent().siblings('button').children('.commentCount').text(+$(this).parent().parent().siblings('button').children('.commentCount').text()+1);
+      $('.replyName',$(this).parent()).val('');
+      $('.replyComment',$(this).parent()).val('')
+    });
+  });
+  </script>
+</head>
+<body background="background.jpg">
+<div class="container">
+    <div class="media p-3">
+      <img src="https://pbs.twimg.com/profile_images/1074899811495800833/48grFvKF.jpg" alt="Karan" class="mr-3 mt-3 rounded-circle" style="width:75px; height:75px;">
+      <div class="media-body rep">
+        <h4>Karan Hussain</h4>
+        <p>Hey guys! I am Karan Hussain , I guess u might already know that cause of the heading<B> ;D ;D ;D .</B> Welcome to my discussion about parkour. So do u guys even know there is a sport named as Parkour. Basically it is moving like a thief<b> :D </b>but yeah it's really fun to do. U guys should try it as well. HERE YOU CAN GIVE ME YOUR SUGGESTIONS ABOUT WHAT U THINK ABOUT PARKOUR AND DO U KNOW ABOUT IT ALREADY OR NOT.</p><font color="white">
+        <button class="btn btn-info btn-link like">Like :</font> <span class="likeCount">0</span></button>
+        </font>
+        <button class="btn btn-success btn-link reply"><font color="white">Comment : </font>
+        <span class="commentCount">0</span></button>
+      <div class="media p-3 replyForm" style="display:none">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51Slh1U%2Bu4L.png" alt="Karan" class="mr-3 mt-3 rounded-circle" style="width:75px; height:75px;">
+        <div class="media-body">
+          <input type="text" class="form-control replyName" placeholder="Your good name...."><br>
+          <textarea class="form-control replyComment" rows="3" placeholder="Your comment please..."></textarea><br>
+          <button class="btn btn-primary commentPost">Reply</button>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
